@@ -9,6 +9,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Scanner;
 
 class Cliente{
 
@@ -133,20 +134,100 @@ class Archivos {
     }
 
 }
+class nodoP{
+    String bola;
+    nodoP sig;
+    nodoP(){     
+    }
+    nodoP(String b,nodoP x){
+        this.bola=b;
+        this.sig=x;
+    }
+}
+class pila{
+    nodoP cima;
+    pila aux;
+    int size;
+    boolean isEmpty(){
+        return cima==null;
+    }
+ 
+     nodoP pop(){
+        if(!isEmpty()){
+         nodoP temporal = new nodoP();
+         temporal.bola=this.cima.bola;
+         this.cima=this.cima.sig;
+         return temporal;
+     }
+         System.out.println("No hay bolas de helado");    
+         return null;
+    }     
+     void vaciarPila(){//vaciar pila
+        while(!isEmpty()){
+            pop();
+        }
+    }
 
+    void push(String b) {
+    if(this.isEmpty()){
+       cima=new nodoP(b,cima);
+       size++;
+    }
+  }
+}
 public class Pilas_colas {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
-        
+        Scanner sc=new Scanner(System.in);
         Archivos oo = new Archivos();
         cola ll = new cola();
         
         oo.LeerCliente("Clientes.in", ll);
         
         ll.Mostrar();
+        
+        int opc=0;
+        String sabor=null;
+        pila pil=new pila();
+        do{
+            try{
+                System.out.println("Opciones\n 1.Barquilla\n 2.Toppings\n" //Recordar limpiar antes del proximo pedido
+                         +" 3.Facturar\n 4.Limpiar\n 5.Salir\n ");
+                opc=sc.nextInt();
+                switch(opc){
+                    case 1:
+                        System.out.println("Elija el sabor del helado");
+                        System.out.println(" Chocolate\n Mantecado\n Mora\n Fresa\n"
+                                +" Kiwi\n Parchita");
+                        sabor=sc.next();
+                        pil.push(sabor);
+                        break;
+                    case 2:
+                        System.out.println("Elija el topping");
+                        System.out.println(" Sirope Chocolate\n Sirope Fresa\n Sirope Caramelo\n"
+                                +" Arequipe\n Nutella\n Cereal\n Galletas\n");
+                        sabor=sc.next();
+                        pil.push(sabor);
+                        break;
+                    case 3:
+                        
+                         
+                        break;
+                    case 4:
+                        if(!pil.isEmpty()){
+                            pil.vaciarPila();
+                        }else{
+                            System.out.println("Limpio, ya puede generar otro pedido");
+                        }
+                        break;
+                    default: System.out.println("Ha salido del sistema");
+                }
+            }catch(NumberFormatException n){
+        	
+             }    
+        }while(opc!=5);
     }
-
 }
