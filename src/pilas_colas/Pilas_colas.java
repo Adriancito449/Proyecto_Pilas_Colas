@@ -18,7 +18,8 @@ public class Pilas_colas {
         cola ll = new cola();
 
         oo.LeerCliente("Clientes.in", ll);
-
+        
+        ll.AtenderClientes();
         ll.Mostrar();
     }
 

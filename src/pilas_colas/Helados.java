@@ -12,8 +12,8 @@ import javax.swing.JOptionPane;
  */
 public class Helados {
 
-    pila sabores; // pila para capturar los sabores
-    pila Toping;    // pila para capturar los sabores
+    pila sabores = new pila(); // pila para capturar los sabores
+    pila Toping= new pila();    // pila para capturar los sabores
 
     int opcion = 0, opcionHelado = 0, opcionTopping = 0;    // Variables globales para el RellenarVarquilla() 
     int cantidadPorciones = 0, cantidadTopping = 0;     // Variables globales para calcular presios

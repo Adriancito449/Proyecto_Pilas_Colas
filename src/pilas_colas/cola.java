@@ -67,6 +67,19 @@ public class cola {
         }
 
     }
+    
+    void AtenderClientes(){
+    
+        aux = Principio; 
+        while (aux != null) {
+            
+            aux.bb = new Helados();
+            aux.bb.RellenarVarquilla();
+            aux = aux.sig;
+         
+        }
+    
+    }
 
 
     

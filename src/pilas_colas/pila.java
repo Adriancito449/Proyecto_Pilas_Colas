@@ -11,7 +11,7 @@ package pilas_colas;
 public class pila {
 
     nodoP cima;
-    pila aux;
+    
     int size;
 
     boolean isEmpty() {
