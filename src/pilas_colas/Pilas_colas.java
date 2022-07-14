@@ -6,21 +6,19 @@ package pilas_colas;
 
 import java.io.IOException;
 
-
 public class Pilas_colas {
 
-
-    
-    
     public static void main(String[] args) throws IOException {
-
         Archivos oo = new Archivos();
+
         cola ll = new cola();
 
         oo.LeerCliente("Clientes.in", ll);
-        
         ll.AtenderClientes();
-        ll.Mostrar();
+        Imprimir ff = new Imprimir(ll);
+
+        ff.facturaCliente();
+        System.out.println("ok");
     }
 
 }

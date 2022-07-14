@@ -42,9 +42,9 @@ public class pila {
         }
     }
     
-    void pushHelado(String saborH, int numSabor, int muntop, String toph, nodoP Siguit) {
+    void pushHelado(String saborH, int numSabor, int muntop, String toph) {
         if (this.isEmpty()) {
-            cima = new nodoP(saborH, numSabor,muntop,toph, Siguit);
+            cima = new nodoP(saborH, numSabor,muntop,toph, cima);
             size++;
         }
     }
