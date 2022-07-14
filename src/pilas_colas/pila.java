@@ -41,6 +41,14 @@ public class pila {
             size++;
         }
     }
+    
+    void pushHelado(String saborH, int numSabor, int muntop, String toph, nodoP Siguit) {
+        if (this.isEmpty()) {
+            cima = new nodoP(saborH, numSabor,muntop,toph, Siguit);
+            size++;
+        }
+    }
+    
 
     void Mostrar_pila() {
 
@@ -53,5 +61,7 @@ public class pila {
         }
 
     }
+    
+    
 
 }

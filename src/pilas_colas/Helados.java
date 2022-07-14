@@ -21,6 +21,8 @@ public class Helados {
     int totalPagar = 0; // Variables globales para calcular presios
 
     void agregarSabor() {   // Funcion para agregar porsiones extras
+        int g=0;
+        int h=0;
 
         int op = 0, opHelado = 0, opTopping = 0; // variables locales de esta funcion 
 
@@ -49,7 +51,7 @@ public class Helados {
 
                         } while (opHelado != 1 && opHelado != 2 && opHelado != 3
                                 && opHelado != 4 && opHelado != 5 && opHelado != 6);
-                        sabores.push(saberSabor(opHelado)); // agregando sabores extras
+                        sabores.pushHelado(saberSabor(opHelado), g++, 0, null);// agregando sabores extras
                         cantidadPorcionesExtras++; // costancia de porsiones extras
                     }
 
@@ -72,7 +74,8 @@ public class Helados {
                         } while (opTopping != 1 && opTopping != 2 && opTopping != 3
                                 && opTopping != 4 && opTopping != 5 && opTopping != 6
                                 && opTopping != 7);
-                        Toping.push(saberTopping(opTopping)); // Agregando a la pila de Toping
+                        
+                        Toping.pushHelado(null, 0, h++, saberTopping(opTopping)); // Agregando a la pila de Toping
                         cantidadToppingExtras++;    // Sumando topins extras
                     }
 
@@ -91,6 +94,8 @@ public class Helados {
     }
 
     void RellenarVarquilla() {
+        int g=0;
+        int h=0;
         // motor Principal para las varquillas 
         JOptionPane.showMessageDialog(null, "Bienvenido a la heladeria nice cream");
         opcion = Integer.parseInt(JOptionPane.showInputDialog(null,
@@ -114,7 +119,7 @@ public class Helados {
                 } while (opcionHelado != 1 && opcionHelado != 2 && opcionHelado != 3
                         && opcionHelado != 4 && opcionHelado != 5 && opcionHelado != 6);
 
-                sabores.push(saberSabor(opcionHelado)); //Agrego los sabores 
+                sabores.pushHelado(saberSabor(opcionHelado), g++, 0, null);
                 cantidadPorciones++;    // para el calculo total
                 do {    // Mecanismo de Control del Toping
                     opcionTopping = Integer.parseInt(JOptionPane.showInputDialog(null,
@@ -129,7 +134,7 @@ public class Helados {
                 } while (opcionTopping != 1 && opcionTopping != 2 && opcionTopping != 3
                         && opcionTopping != 4 && opcionTopping != 5 && opcionTopping != 6
                         && opcionTopping != 7);
-                Toping.push(saberTopping(opcionTopping));   //Agrepo el topin a la pila 
+                Toping.pushHelado(null, 0, h++, saberTopping(opcionTopping));   //Agrepo el topin a la pila 
                 cantidadTopping++;  // para el caluculo Final
                 agregarSabor();     // para agregar los sabores o toping extras
                 break;
